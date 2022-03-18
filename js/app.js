@@ -1,4 +1,4 @@
-import reviewList from "../data.js"
+import reviewList from "./data.js"
 import get from "./getElement.js"
 
 const navbar = get("#nav")
