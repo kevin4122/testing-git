@@ -3,7 +3,7 @@ function getElement(selection) {
   if (element) {
     return element
   } else {
-    throw Error('you did not select element')
+    throw Error("you did not select element")
   }
 }
 
