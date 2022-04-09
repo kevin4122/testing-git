@@ -330,7 +330,7 @@ Header
 
 .slogan {
   font-family: "Brush Script Std", cursive;
-  font-size: 1rem;
+  font-size: 2rem;
   color: var(--clr-white);
   animation: slideFromLeft 5s ease-in-out 1;
 }
