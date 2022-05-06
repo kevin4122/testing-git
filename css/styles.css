@@ -408,6 +408,14 @@ Sidebar
   color: var(--clr-primary-5);
 }
 
+.linkedin1 {
+  text-transform: capitalize;
+  color: blue;
+}
+.linkedin2 {
+  color: blue;
+}
+
 .close-btn {
   position: absolute;
   top: 1rem;

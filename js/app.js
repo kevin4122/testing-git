@@ -151,16 +151,20 @@ nextBtn.addEventListener("click", () => {
 
 prevBtn.addEventListener("click", () => {
   if (count_new === 0) {
+    count_new = 3
+  } else if (count_new - 6 < 0) {
     count_new = 6
+  } else {
+    count_new = count_new - 6
   }
-  count_new = count_new - 6
   for (let index = 0; index < 3; index++) {
-    // personImg[index].src = reviewList[count_new].img
-    // authorDisplay[index].innerHTML = reviewList[count_new].author
-    // jobDisplay[index].innerHTML = reviewList[count_new].job
-    // infoDisplay[index].innerHTML = reviewList[count_new].info
+    personImg[index].src = reviewList[count_new].img
+    authorDisplay[index].innerHTML = reviewList[count_new].author
+    jobDisplay[index].innerHTML = reviewList[count_new].job
+    infoDisplay[index].innerHTML = reviewList[count_new].info
 
     count_new++
-    console.log(count_new)
+    // console.log(count_new)
   }
+  console.log(count_new)
 })
