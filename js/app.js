@@ -84,53 +84,53 @@ date.innerHTML = new Date().getFullYear()
 //   })
 // })
 
-prevBtn.addEventListener("click", () => {
-  // console.log(personImg)
-  // console.log(authorDisplay)
-  if (count <= 0) {
-    count = reviewList.length - 3
-  } else {
-    count = count - 3
-  }
+// prevBtn.addEventListener("click", () => {
+//   // console.log(personImg)
+//   // console.log(authorDisplay)
+//   if (count <= 0) {
+//     count = reviewList.length - 3
+//   } else {
+//     count = count - 3
+//   }
 
-  // for (i = count; i <= 3; i++) {
-  //   personImg.forEach((person) => {
-  //     person.src = reviewList[i].img
-  //   })
-  //   authorDisplay.forEach((author) => {
-  //     author.innerHTML = reviewList[i].author
-  //   })
-  //   jobDisplay.forEach((job) => {
-  //     job.innerHTML = reviewList[i].job
-  //   })
-  //   infoDisplay.forEach((info) => {
-  //     info.innerHTML = reviewList[i].info
-  //   })
-  // }
+//   // for (i = count; i <= 3; i++) {
+//   //   personImg.forEach((person) => {
+//   //     person.src = reviewList[i].img
+//   //   })
+//   //   authorDisplay.forEach((author) => {
+//   //     author.innerHTML = reviewList[i].author
+//   //   })
+//   //   jobDisplay.forEach((job) => {
+//   //     job.innerHTML = reviewList[i].job
+//   //   })
+//   //   infoDisplay.forEach((info) => {
+//   //     info.innerHTML = reviewList[i].info
+//   //   })
+//   // }
 
-  let i = count
-  let j = count
-  let k = count
-  let m = count
-  personImg.forEach((person) => {
-    person.src = reviewList[i].img
-    i += 1
-  })
+//   let i = count
+//   let j = count
+//   let k = count
+//   let m = count
+//   personImg.forEach((person) => {
+//     person.src = reviewList[i].img
+//     i += 1
+//   })
 
-  authorDisplay.forEach((author) => {
-    author.innerHTML = reviewList[j].author
-    j += 1
-  })
+//   authorDisplay.forEach((author) => {
+//     author.innerHTML = reviewList[j].author
+//     j += 1
+//   })
 
-  jobDisplay.forEach((job) => {
-    job.innerHTML = reviewList[k].job
-    k += 1
-  })
-  infoDisplay.forEach((info) => {
-    info.innerHTML = reviewList[m].info
-    m += 1
-  })
-})
+//   jobDisplay.forEach((job) => {
+//     job.innerHTML = reviewList[k].job
+//     k += 1
+//   })
+//   infoDisplay.forEach((info) => {
+//     info.innerHTML = reviewList[m].info
+//     m += 1
+//   })
+// })
 
 let count_new = 3
 nextBtn.addEventListener("click", () => {
@@ -141,9 +141,26 @@ nextBtn.addEventListener("click", () => {
     infoDisplay[index].innerHTML = reviewList[count_new].info
 
     count_new++
-    console.log(count_new)
+    // console.log(count_new)
   }
   if (count_new === 9) {
     count_new = 0
+  }
+  console.log(count_new)
+})
+
+prevBtn.addEventListener("click", () => {
+  if (count_new === 0) {
+    count_new = 6
+  }
+  count_new = count_new - 6
+  for (let index = 0; index < 3; index++) {
+    // personImg[index].src = reviewList[count_new].img
+    // authorDisplay[index].innerHTML = reviewList[count_new].author
+    // jobDisplay[index].innerHTML = reviewList[count_new].job
+    // infoDisplay[index].innerHTML = reviewList[count_new].info
+
+    count_new++
+    console.log(count_new)
   }
 })
