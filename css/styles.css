@@ -406,6 +406,7 @@ Sidebar
 }
 .social-icon:hover {
   color: var(--clr-primary-5);
+  /* font-size: 1.6rem; */
 }
 
 .linkedin1 {
