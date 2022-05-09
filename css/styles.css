@@ -292,7 +292,7 @@ Navbar
 .nav-header {
   display: grid;
   grid-template-columns: auto 1fr;
-  align-items: center; /* align vertically */
+  align-items: center;
 }
 
 .nav-btn {
@@ -367,17 +367,19 @@ Sidebar
   height: 100%;
   z-index: 4;
   display: grid;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
+  place-items: center;
   transition: var(--transition);
   transform: translateX(-100%);
-}
-.sidebar-links {
-  text-align: center;
 }
 
 .show-sidebar {
   transform: translate(0);
+}
+
+.sidebar-links {
+  text-align: center;
 }
 
 .sidebar-links a {
@@ -392,6 +394,7 @@ Sidebar
 .sidebar-links a:hover {
   color: var(--clr-primary-5);
 }
+
 .social-icons {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -399,23 +402,24 @@ Sidebar
   width: 20rem;
   justify-items: center;
 }
+
 .social-icon {
   font-size: 1.5rem;
   color: var(--clr-grey-1);
   transition: var(--transition);
 }
+
 .social-icon:hover {
   color: var(--clr-primary-5);
-  /* font-size: 1.6rem; */
 }
 
-.linkedin1 {
+/* .linkedin1 {
   text-transform: capitalize;
   color: blue;
 }
 .linkedin2 {
   color: blue;
-}
+} */
 
 .close-btn {
   position: absolute;
