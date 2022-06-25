@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kevin Tong || Data Analysis</title>
+    <link
+      rel="stylesheet"
+      href="./fontawesome-free-5.12.1-web/css/all.min.css"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+
+  <body>
+    <!-- navbar -->
+    <nav class="nav" id="nav">
+      <div class="nav-center">
+        <!-- nav header -->
+        <div class="nav-header">
+          <a href="index.html">
+            <!-- <img src="./images/logo.svg" class="nav-logo" alt="" /> -->
+            <img src="./images/logo.svg" class="nav-logo" alt="" />
+          </a>
+          <button class="nav-btn" id="nav-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <!-- nav links -->
+        <ul class="nav-links">
+          <li><a href="index.html">home</a></li>
+          <li><a href="about.html">about</a></li>
+          <li><a href="projects.html">projects</a></li>
+          <li><a href="contact.html">contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- end of navbar -->
+    <!-- sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div>
+        <button id="close-btn" class="close-btn">
+          <i class="fas fa-times"></i>
+        </button>
+        <ul class="sidebar-links">
+          <li><a href="index.html">home</a></li>
+          <li><a href="about.html">about</a></li>
+          <li><a href="projects.html">projects</a></li>
+          <li><a href="contact.html">contact</a></li>
+        </ul>
+        <ul class="social-icons">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/kevintong1/"
+              class="social-icon"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://facebook.com" class="social-icon">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/" class="social-icon">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com" class="social-icon">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+    <!-- end of sidebar -->
+
+    <!-- section title -->
+    <!-- <header class="projects-hero">
+      <div class="section-title">
+        <h1>my projects</h1>
+        <div class="underline"></div>
+      </div>
+    </header> -->
+    <!-- end of section title -->
+
+    <!-- project -->
+    <section class="section projects2">
+      <!-- section title -->
+      <div class="section-title">
+        <h2>SQL code</h2>
+        <div class="underline"></div>
+      </div>
+      <!-- end of section title -->
+
+      <div class="sql-center">
+        <!-- single card -->
+        <p>
+          <span class="sqlkeycommentcolor">
+            -- Find the difference qty between Netsuite server and Drax server
+            --
+          </span>
+        </p>
+        <p>
+          <span class="sqlkeykeywordcolor">WITH</span> cte_1
+          <span class="sqlkeykeywordcolor">AS</span> (<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="sqlkeykeywordcolor">SELECT</span>
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ns.container, <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+            class="sqlfunctioncolor"
+            >SUM</span
+          >(items_quantity_received)
+          <span class="sqlkeykeywordcolor">AS</span> ns_total <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="sqlkeykeywordcolor">FROM</span>
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;whsestage..stage_inbound_kt1
+          ns <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="sqlkeykeywordcolor"
+            >GROUP BY</span
+          >
+          ns.container <br />
+          ),
+        </p>
+
+        <p>
+          cte_2 <span class="sqlkeykeywordcolor">AS</span> ( <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="sqlkeykeywordcolor">SELECT</span>
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr.user_def2, <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+            class="sqlfunctioncolor"
+            >CAST</span
+          >(<span class="sqlfunctioncolor">SUM</span>(total_qty)
+          <span class="sqlkeykeywordcolor">AS</span>
+          <span class="sqlkeykeywordcolor">INT</span>)
+          <span class="sqlkeykeywordcolor">AS</span> drax_total, <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr.receipt_id <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="sqlkeykeywordcolor">FROM</span>
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[WMS-DRAX].[ILS].[dbo].[UPLOAD_RECEIPT_DETAIL]
+          dr <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="sqlkeykeywordcolor"
+            >GROUP BY</span
+          >
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr.user_def2, <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr.receipt_id <br />
+          ) <br />
+        </p>
+
+        <p>
+          <span class="sqlkeykeywordcolor">SELECT</span>
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;cte_2.receipt_id <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;,cte_1.* <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;,cte_2.user_def2 <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;,cte_2.drax_total <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;,(drax_total-ns_total)
+          <span class="sqlkeykeywordcolor">AS</span> difference <br />
+          <span class="sqlkeykeywordcolor">FROM</span
+          >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cte_1
+          <span class="sqlkeykeywordcolor">JOIN</span> cte_2 <br />
+          <span class="sqlkeykeywordcolor">ON</span>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cte_1.container
+          <span class="sqlfunctioncolor">COLLATE</span> DATABASE_DEFAULT =
+          cte_2.user_def2
+          <span class="sqlfunctioncolor">COLLATE</span> DATABASE_DEFAULT ><br />
+          <span class="sqlkeykeywordcolor">AND</span>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cte_1.ns_total !=
+          cte_2.drax_total
+          <br />
+          <span class="sqlkeykeywordcolor">WHERE</span>
+          &nbsp;&nbsp;&nbsp;<span class="sqlfunctioncolor">LEN</span
+          >(cte_2.receipt_id)&lt;5
+          <br />
+          <span class="sqlkeykeywordcolor">AND</span>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(drax_total-ns_total)&gt;0
+          <br />
+          <span class="sqlkeykeywordcolor">ORDER BY</span> <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cte_2.receipt_id,
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(drax_total-ns_total)
+          <span class="sqlkeykeywordcolor">DESC</span>
+          <br />
+        </p>
+
+        <!-- end of single card -->
+      </div>
+    </section>
+
+    <!-- end of project section -->
+    <!-- ############## -->
+
+    <!-- footer -->
+    <footer class="footer">
+      <!-- social icons -->
+      <ul class="social-icons">
+        <li>
+          <a href="https://www.linkedin.com/in/kevintong1/" class="social-icon">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://facebook.com" class="social-icon">
+            <i class="fab fa-facebook"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com" class="social-icon">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/" class="social-icon">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://instagram.com" class="social-icon">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </li>
+      </ul>
+      <p>&copy; <span id="date"></span> kevin tong. all rights reserved</p>
+    </footer>
+    <!-- end of footer -->
+    <script type="module" src="./js/about.js"></script>
+  </body>
+</html>

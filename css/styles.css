@@ -115,6 +115,10 @@ p {
   margin-bottom: 1.25rem;
   color: var(--clr-grey-5);
 }
+.services-center a {
+  color: black;
+}
+
 @media screen and (min-width: 800px) {
   h1 {
     font-size: 4rem;
@@ -807,7 +811,7 @@ Reviews
   margin-bottom: 0.5rem;
   text-transform: uppercase;
   color: var(--clr-blue-5);
-  font-size: 1.15rem;
+  font-size: 1.2rem;
 }
 .info {
   margin-bottom: 0.75rem;
@@ -967,6 +971,31 @@ Single Page
 
 /*
 =============== 
-Products Page
+Data Analysis - SQL
 ===============
 */
+
+.sql-center {
+  width: 80vw;
+  max-width: 1170px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border: 2px;
+  border-color: #222;
+  border-style: solid;
+}
+.sql-center p {
+  color: black;
+}
+.sqlkeycommentcolor {
+  color: green;
+}
+
+.sqlkeykeywordcolor {
+  color: blue;
+}
+
+.sqlfunctioncolor {
+  color: rgb(255, 0, 247);
+}
