@@ -160,10 +160,10 @@
           <span class="sqlkeykeywordcolor">SELECT</span>
           <br />
           &nbsp;&nbsp;&nbsp;&nbsp;cte_2.receipt_id <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;,cte_1.* <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;,cte_2.user_def2 <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;,cte_2.drax_total <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;,(drax_total-ns_total)
+          &nbsp;&nbsp;&nbsp;&nbsp;cte_1.*, <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;cte_2.user_def2, <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;cte_2.drax_total, <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;(drax_total-ns_total),
           <span class="sqlkeykeywordcolor">AS</span> difference <br />
           <span class="sqlkeykeywordcolor">FROM</span
           >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cte_1
